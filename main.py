@@ -157,9 +157,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     conversations.pop(update.effective_chat.id, None)
     await update.message.reply_text(
         "Hola 👋 Soy el bot de cualificación de leads de Orbyn.\n\n"
-        "Para guardar un lead necesito 5 datos: nombre de la empresa, "
-        "si su sector es servicios, consultoría u otro, número de empleados, "
-        "ubicación, e interés en automatización o IA.\n\n"
+        "Para guardar un lead necesito estos datos:\n\n"
+        "- Nombre de la empresa\n"
+        "- Sector (servicios, consultoría u otro)\n"
+        "- Número de empleados\n"
+        "- Ubicación\n"
+        "- Interés en automatización o IA\n\n"
         "Puedes dármelos todos de golpe o poco a poco, te iré preguntando "
         "lo que falte.\n\n"
         "Ejemplo:\n"
