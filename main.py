@@ -173,7 +173,15 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def reset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     conversations.pop(update.effective_chat.id, None)
-    await update.message.reply_text("Listo, empezamos de cero. Cuéntame del siguiente lead 🙂")
+    await update.message.reply_text(
+        "Listo, empezamos de cero 🙂\n\n"
+        "Cuéntame del siguiente lead. Necesito estos datos:\n\n"
+        "- Nombre de la empresa\n"
+        "- Sector (servicios, consultoría u otro)\n"
+        "- Número de empleados\n"
+        "- Ubicación\n"
+        "- Interés en automatización o IA"
+    )
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
