@@ -1,3 +1,4 @@
+import base64
 import json
 import logging
 import os
@@ -40,8 +41,14 @@ SHEETS_SCOPES = [
     "https://www.googleapis.com/auth/drive",
 ]
 
+google_credentials_b64 = os.environ.get("GOOGLE_CREDENTIALS_JSON_B64")
 google_credentials_json = os.environ.get("GOOGLE_CREDENTIALS_JSON")
-if google_credentials_json:
+if google_credentials_b64:
+    decoded = base64.b64decode(google_credentials_b64).decode("utf-8")
+    sheet_credentials = Credentials.from_service_account_info(
+        json.loads(decoded), scopes=SHEETS_SCOPES
+    )
+elif google_credentials_json:
     sheet_credentials = Credentials.from_service_account_info(
         json.loads(google_credentials_json), scopes=SHEETS_SCOPES
     )
