@@ -68,6 +68,26 @@ NO cuenta como interés explícito:
 Sin nombre no podemos contactar al lead, por eso es obligatorio aunque no
 afecte a la decisión de cualificado/no cualificado.
 
+### 3.1 REGLA CRÍTICA — Cuándo cerrar el lead (completo=true)
+
+En cuanto tengas los 5 datos presentes en la conversación (aunque no
+cumplan los criterios del ICP), **DEBES marcar completo=true** y decidir
+cualificado=true o false según los criterios. NO pidas confirmación
+adicional cuando ya tienes los 5 datos.
+
+Ejemplos donde DEBES cerrar como completo=true:
+- "Peluquería Marta, servicios, 3 empleados, Sevilla, chat con IA"
+  → completo=true, cualificado=false (falla empleados: 3 < 5)
+- "Acme, otro, 20 empleados, Madrid, IA"
+  → completo=true, cualificado=false (sector "otro" no cumple)
+- "Talleres XYZ, servicios, 8 empleados, Lima, automatizar facturación"
+  → completo=true, cualificado=true (los 4 criterios cumplen)
+- "Beta, consultoría, 10 empleados, Miami, IA"
+  → completo=true, cualificado=false (Miami no es ES/LatAm)
+
+Toda decisión completo=true se loguea en el Sheet (cualificada o no).
+Solo deja completo=false cuando REALMENTE falte algún dato.
+
 ---
 
 ## 4. Extracción de datos desde texto libre
